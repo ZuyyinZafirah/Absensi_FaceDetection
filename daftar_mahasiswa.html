@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Mahasiswa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Judul Halaman -->
+        <h1 class="mb-4">Daftar Mahasiswa</h1>
+
+        <!-- Tombol Tambah Mahasiswa -->
+        <div class="d-flex justify-content-between mb-3">
+            <button class="btn btn-primary" onclick="addStudent()">Tambah Mahasiswa</button>
+            <button class="btn btn-success" onclick="exportData()">Export Data</button>
+        </div>
+
+        <!-- Tabel Daftar Mahasiswa -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="table-primary">
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>NIM</th>
+                        <th>Program Studi</th>
+                        <th>Kelas</th>
+                        <th>Status Kehadiran</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Contoh Data Mahasiswa -->
+                    <tr>
+                        <td>1</td>
+                        <td>Ahmad Yusuf</td>
+                        <td>202101001</td>
+                        <td>Teknik Informatika</td>
+                        <td>Kelas A</td>
+                        <td>Hadir</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm" onclick="editStudent(1)">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteStudent(1)">Hapus</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Siti Aminah</td>
+                        <td>202101002</td>
+                        <td>Teknik Informatika</td>
+                        <td>Kelas B</td>
+                        <td>Tidak Hadir</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm" onclick="editStudent(2)">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteStudent(2)">Hapus</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Script Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script Fungsionalitas (Contoh Sederhana) -->
+    <script>
+        function addStudent() {
+            alert('Tambah Mahasiswa: Fungsi ini akan membuka form untuk menambah mahasiswa.');
+        }
+
+        function editStudent(id) {
+            alert('Edit Mahasiswa ID ' + id + ': Fungsi ini akan membuka form untuk mengedit mahasiswa.');
+        }
+
+        function deleteStudent(id) {
+            const confirmDelete = confirm('Apakah Anda yakin ingin menghapus mahasiswa ID ' + id + '?');
+            if (confirmDelete) {
+                alert('Mahasiswa ID ' + id + ' berhasil dihapus.');
+            }
+        }
+
+        function exportData() {
+            alert('Export Data: Fungsi ini akan mengekspor data mahasiswa ke file (misalnya CSV atau Excel).');
+        }
+    </script>
+</body>
+</html>
