@@ -1,3 +1,4 @@
+<?php include 'controller/koneksi.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,77 +32,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">SK Mahasiswa <sup>3</sup></div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Absensi</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Absensi:</h6>
-                        <a class="collapse-item" href="ambil_dataset.html">Ambil Dataset</a>
-                        <a class="collapse-item" href="test_dataset.html">Test Dataset</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Master Data</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Master Data:</h6>
-                        <a class="collapse-item" href="masterdata-mahasiswa.html">Data Mahasiswa</a>
-                        <a class="collapse-item" href="masterdata-dosen.html">Data Dosen</a>
-                        <a class="collapse-item" href="masterdata-absensi.html">Data Absensi</a>
-                        <a class="collapse-item" href="masterdata-mk.html">Data Mata Kuliah</a>
-                        <a class="collapse-item" href="masterdata-kelas.html">Data Kelas</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
+              <?php include 'sidebar.php'; ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -178,188 +109,90 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Foto</th>
-                                            <th>NIDN</th>
-                                            <th>Nama Dosen</th>
-                                            <th>Program Studi</th>
-                                            <th>Jabatan Akademik</th>
-                                            <th>Mata Kuliah</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- Data -->
-                                        <tr>
-                                            <td>1</td>
-                                            <td><img src="images/dosen1.jpg" alt="Foto Dosen" width="50"></td>
-                                            <td>01234567</td>
-                                            <td>Dr. Musta'inul Abdi</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>Lektor</td>
-                                            <td>Algoritma dan Pemrograman</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" onclick="editDosen(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="hapusDosen(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td><img src="images/dosen2.jpg" alt="Foto Dosen" width="50"></td>
-                                            <td>07654321</td>
-                                            <td>Prof. Bambang Subroto</td>
-                                            <td>Sistem Informasi</td>
-                                            <td>Profesor</td>
-                                            <td>Data Mining</td>
-                                            <td>
-                                                <button class="btn btn-warning btn-sm" onclick="editDosen(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</button>
-                                                <button class="btn btn-danger btn-sm" onclick="hapusDosen(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td><img src="images/dosen3.jpg" alt="Foto Dosen" width="50"></td>
-                                            <td>01234567</td>
-                                            <td>Dr. Anita Sari</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>Lektor</td>
-                                            <td>Algoritma dan Pemrograman</td>
-                                            <td>
-                                                <button class="btn btn-warning btn-sm" onclick="editDosen(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</button>
-                                                <button class="btn btn-danger btn-sm" onclick="hapusDosen(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td><img src="images/dosen4.jpg" alt="Foto Dosen" width="50"></td>
-                                            <td>07654321</td>
-                                            <td>Prof. Bambang Subroto</td>
-                                            <td>Sistem Informasi</td>
-                                            <td>Profesor</td>
-                                            <td>Data Mining</td>
-                                            <td>
-                                                <button class="btn btn-warning btn-sm" onclick="editDosen(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</button>
-                                                <button class="btn btn-danger btn-sm" onclick="hapusDosen(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td><img src="images/dosen5.jpg" alt="Foto Dosen" width="50"></td>
-                                            <td>01234567</td>
-                                            <td>Dr. Musta'inul Abdi</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>Lektor</td>
-                                            <td>Algoritma dan Pemrograman</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" onclick="editDosen(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="hapusDosen(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td><img src="images/dosen6.jpg" alt="Foto Dosen" width="50"></td>
-                                            <td>07654321</td>
-                                            <td>Prof. Bambang Subroto</td>
-                                            <td>Sistem Informasi</td>
-                                            <td>Profesor</td>
-                                            <td>Data Mining</td>
-                                            <td>
-                                                <button class="btn btn-warning btn-sm" onclick="editDosen(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</button>
-                                                <button class="btn btn-danger btn-sm" onclick="hapusDosen(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td><img src="images/dosen7.jpg" alt="Foto Dosen" width="50"></td>
-                                            <td>01234567</td>
-                                            <td>Dr. Anita Sari</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>Lektor</td>
-                                            <td>Algoritma dan Pemrograman</td>
-                                            <td>
-                                                <button class="btn btn-warning btn-sm" onclick="editDosen(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</button>
-                                                <button class="btn btn-danger btn-sm" onclick="hapusDosen(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td><img src="images/dosen8.jpg" alt="Foto Dosen" width="50"></td>
-                                            <td>07654321</td>
-                                            <td>Prof. Bambang Subroto</td>
-                                            <td>Sistem Informasi</td>
-                                            <td>Profesor</td>
-                                            <td>Data Mining</td>
-                                            <td>
-                                                <button class="btn btn-warning btn-sm" onclick="editDosen(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</button>
-                                                <button class="btn btn-danger btn-sm" onclick="hapusDosen(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td><img src="images/dosen9.jpg" alt="Foto Dosen" width="50"></td>
-                                            <td>07654321</td>
-                                            <td>Prof. Bambang Subroto</td>
-                                            <td>Sistem Informasi</td>
-                                            <td>Profesor</td>
-                                            <td>Data Mining</td>
-                                            <td>
-                                                <button class="btn btn-warning btn-sm" onclick="editDosen(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</button>
-                                                <button class="btn btn-danger btn-sm" onclick="hapusDosen(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td><img src="images/dosen10.jpg" alt="Foto Dosen" width="50"></td>
-                                            <td>01234567</td>
-                                            <td>Dr. Anita Sari</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>Lektor</td>
-                                            <td>Algoritma dan Pemrograman</td>
-                                            <td>
-                                                <button class="btn btn-warning btn-sm" onclick="editDosen(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</button>
-                                                <button class="btn btn-danger btn-sm" onclick="hapusDosen(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>11</td>
-                                            <td><img src="images/dosen11.jpg" alt="Foto Dosen" width="50"></td>
-                                            <td>07654321</td>
-                                            <td>Prof. Bambang Subroto</td>
-                                            <td>Sistem Informasi</td>
-                                            <td>Profesor</td>
-                                            <td>Data Mining</td>
-                                            <td>
-                                                <button class="btn btn-warning btn-sm" onclick="editDosen(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</button>
-                                                <button class="btn btn-danger btn-sm" onclick="hapusDosen(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Foto Dosen</th>
+            <th>Nama Dosen</th>
+            <th>NIP</th>
+            <th>Jurusan</th>
+            <th>Prodi</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        // Memulai nomor urut
+        $no = 1;
+
+        // Query untuk mengambil semua data dosen
+        $query = mysqli_query($conn, "SELECT * FROM dosen");
+
+        // Looping data dosen
+        while ($row = mysqli_fetch_array($query)) {
+            ?>
+                        <tr>
+                            <!-- No Urut -->
+                            <td><?php echo $no++; ?></td>
+
+                            <!-- Foto Dosen -->
+                            <td>
+                                <img src="media/<?php echo $row['photo']; ?>" 
+                                     alt="Foto <?php echo $row['nama_dosen']; ?>" 
+                                     class="rounded" width="50" height="50">
+                            </td>
+
+                            <!-- Nama Dosen -->
+                            <td><?php echo $row['nama_dosen']; ?></td>
+
+                            <!-- NIP Dosen -->
+                            <td><?php echo $row['nip']; ?></td>
+
+                            <?php
+                            // Mengambil id_prodi dari tabel dosen
+                            $idprodi = $row['id_prodi'];
+
+                            // Query untuk mengambil data prodi dan jurusan yang terkait dengan dosen
+                            $query2 = mysqli_query($conn, "SELECT jurusan.jurusan_name, prodi.prodi_name 
+                                               FROM prodi 
+                                               INNER JOIN jurusan ON jurusan.jurusan_id = prodi.jurusan_id 
+                                               WHERE prodi.id_prodi = $idprodi");
+
+                            // Ambil data dari query di atas
+                            $row2 = mysqli_fetch_array($query2);
+                            ?>
+
+                            <!-- Nama Jurusan -->
+                            <td><?php echo $row2['jurusan_name']; ?></td>
+
+                            <!-- Nama Prodi -->
+                            <td><?php echo $row2['prodi_name']; ?></td>
+
+                            <!-- Tombol Aksi -->
+                            <td>
+                                <a class="btn btn-warning btn-sm" 
+                                   data-bs-toggle="modal" 
+                                   data-bs-target="#editModal" 
+                                   onclick="editDosen('<?php echo $row['nama_dosen']; ?>', 
+                                          '<?php echo $row['nip']; ?>', 
+                                          '<?php echo $row2['jurusan_name']; ?>', 
+                                          '<?php echo $row2['prodi_name']; ?>')">
+                                    <i class="fas fa-fw fa-edit"></i> Edit
+                                </a>
+                                <a href="#" 
+                                   class="btn btn-danger btn-sm" 
+                                   onclick="confirmDelete(<?php echo $row['id_dosen']; ?>)">
+                                    <i class="fas fa-fw fa-trash"></i> Hapus
+                                </a>
+                            </td>
+                        </tr>
+                <?php
+        }
+        ?>
+    </tbody>
+</table>
+
                             </div>
 
                             <!-- Modal Tambah Dosen -->

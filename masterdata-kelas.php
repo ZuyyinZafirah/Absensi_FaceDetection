@@ -1,3 +1,4 @@
+<?php include 'controller/koneksi.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,77 +32,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">SK Mahasiswa <sup>3</sup></div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Absensi</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Absensi:</h6>
-                        <a class="collapse-item" href="ambil_dataset.html">Ambil Dataset</a>
-                        <a class="collapse-item" href="test_dataset.html">Test Dataset</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Master Data</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Master Data:</h6>
-                        <a class="collapse-item" href="masterdata-mahasiswa.html">Data Mahasiswa</a>
-                        <a class="collapse-item" href="masterdata-dosen.html">Data Dosen</a>
-                        <a class="collapse-item" href="masterdata-absensi.html">Data Absensi</a>
-                        <a class="collapse-item" href="masterdata-mk.html">Data Mata Kuliah</a>
-                        <a class="collapse-item" href="masterdata-kelas.html">Data Kelas</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
+        <?php include 'sidebar.php'; ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -179,200 +110,74 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Kode Kelas</th>
-                                            <th>Nama Kelas</th>
-                                            <th>Kapasitas</th>
-                                            <th>Program Studi</th>
-                                            <th>Semester</th>
-                                            <th>Jadwal</th>
-                                            <th>Dosen Wali</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- Data -->
-                                        <tr>
-                                            <td>1</td>
-                                            <td>KLS001</td>
-                                            <td>TI 3A</td>
-                                            <td>30</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>5</td>
-                                            <td>Senin, 08:00-10:00</td>
-                                            <td>Dr. Musta'inul Abdi</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" onclick="editKelas(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteKelas(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>KLS002</td>
-                                            <td>TI 3B</td>
-                                            <td>30</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>4</td>
-                                            <td>Selasa, 09:00-11:00</td>
-                                            <td>Dr. Mahdi</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" onclick="editKelas(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteKelas(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>KLS003</td>
-                                            <td>TI 3C</td>
-                                            <td>30</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>6</td>
-                                            <td>Rabu, 07:30-11:00</td>
-                                            <td>Dr. Salahuddin</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" onclick="editKelas(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteKelas(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>KLS004</td>
-                                            <td>TI 3D</td>
-                                            <td>30</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>2</td>
-                                            <td>Kamis, 11:30-13:00</td>
-                                            <td>Dr. Salahuddin</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" onclick="editKelas(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteKelas(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>KLS005</td>
-                                            <td>TI 2A</td>
-                                            <td>30</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>3</td>
-                                            <td>Jumat, 13:30-17:00</td>
-                                            <td>Dr. Rizka</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" onclick="editKelas(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteKelas(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>KLS006</td>
-                                            <td>TI 2B</td>
-                                            <td>30</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>1</td>
-                                            <td>Kamis, 07:30-10:00</td>
-                                            <td>Dr. Khadafi</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" onclick="editKelas(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteKelas(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>KLS007</td>
-                                            <td>TI 2C</td>
-                                            <td>30</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>7</td>
-                                            <td>Senin, 07:30-12:00</td>
-                                            <td>Dr. Khadafi</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" onclick="editKelas(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteKelas(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>KLS008</td>
-                                            <td>TI 2D</td>
-                                            <td>30</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>8</td>
-                                            <td>Kamis, 09:30-12:00</td>
-                                            <td>Dr. Musta'inul Abdi</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" onclick="editKelas(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteKelas(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>KLS009</td>
-                                            <td>TI 2E</td>
-                                            <td>30</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>5</td>
-                                            <td>Selasa, 09:30-11:00</td>
-                                            <td>Dr. Amirullah</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" onclick="editKelas(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteKelas(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>KLS010</td>
-                                            <td>TI 1A</td>
-                                            <td>30</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>6</td>
-                                            <td>Rabu, 11:10-15:00</td>
-                                            <td>Dr. Muhammad Arhami</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" onclick="editKelas(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteKelas(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>11</td>
-                                            <td>KLS011</td>
-                                            <td>TI 1B</td>
-                                            <td>30</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>3</td>
-                                            <td>Rabu, 15:10-17:00</td>
-                                            <td>Dr. Musta'inul Abdi</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" onclick="editKelas(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteKelas(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama Kelas</th> <!-- nama_kelas -->
+            <th>Program Studi</th> <!-- id_prodi -->
+            <th>Semester</th> <!-- semester -->
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        // Nomor urut
+        $no = 1;
+
+        // Query untuk mendapatkan data dari tabel kelas dengan join ke tabel prodi dan dosen
+        $query = mysqli_query($conn, "SELECT * FROM kelas");
+
+        // Looping hasil query
+        while ($row = mysqli_fetch_array($query)) {
+            ?>
+                                                                            <tr>
+                                                                                <!-- No Urut -->
+                                                                                <td><?php echo $no++; ?></td>
+                                                              
+                                                                                <!-- Nama Kelas -->
+                                                                                <td><?php echo $row['nama_kelas']; ?></td>
+
+                                                                                <?php
+                                                                                $idprodi = $row['id_prodi'];
+                                                                                $query2 = mysqli_query($conn, "SELECT * FROM prodi WHERE id_prodi = $idprodi");
+                                                                                $row2 = mysqli_fetch_array($query2);
+                                                                                ?>
+                                                                            
+                                                                                <td><?php echo $row2['prodi_name']; ?></td> 
+
+                                                                                <!-- Semester -->
+                                                                                <td><?php echo $row['semester']; ?></td> <!-- Semester dari tabel kelas -->
+
+                                                                                <!-- Tombol Aksi -->
+                                                                                <td>
+                                                                                    <a class="btn btn-warning btn-sm" 
+                                                                                       data-bs-toggle="modal" 
+                                                                                       data-bs-target="#editModal" 
+                                                                                       onclick="editKelas(<?php echo $row['id_kelas']; ?>)">
+                                                                                        <i class="fas fa-fw fa-edit"></i> Edit
+                                                                                    </a>
+
+                                                                                    <a href="#" 
+                                                                                       class="btn btn-danger btn-sm" 
+                                                                                       onclick="confirmDelete(<?php echo $row['id_kelas']; ?>)">
+                                                                                        <i class="fas fa-fw fa-trash"></i> Hapus
+                                                                                    </a>
+
+                                                                                    <a class="btn btn-info btn-sm" 
+                                                                                       data-bs-toggle="modal" 
+                                                                                       data-bs-target="#detailModal">
+                                                                                        <i class="fas fa-fw fa-ticket-detailed-fill"></i> Detail
+                                                                                    </a>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <?php
+        }
+        ?>
+    </tbody>
+</table>
+
+
                             </div>
 
                             <!-- Modal Tambah Kelas -->

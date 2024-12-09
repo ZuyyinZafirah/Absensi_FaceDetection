@@ -1,3 +1,4 @@
+<?php include 'controller/koneksi.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,77 +32,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">SK Mahasiswa <sup>3</sup></div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Absensi</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Absensi:</h6>
-                        <a class="collapse-item" href="ambil_dataset.html">Ambil Dataset</a>
-                        <a class="collapse-item" href="test_dataset.html">Test Dataset</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Master Data</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Master Data:</h6>
-                        <a class="collapse-item" href="masterdata-mahasiswa.html">Data Mahasiswa</a>
-                        <a class="collapse-item" href="masterdata-dosen.html">Data Dosen</a>
-                        <a class="collapse-item" href="masterdata-absensi.html">Data Absensi</a>
-                        <a class="collapse-item" href="masterdata-mk.html">Data Mata Kuliah</a>
-                        <a class="collapse-item" href="masterdata-kelas.html">Data Kelas</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
+         <?php include 'sidebar.php'; ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -177,198 +108,90 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <!-- Tabel Mata Kuliah -->
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Kode Mata Kuliah</th>
-                                            <th>Nama Mata Kuliah</th>
-                                            <th>SKS</th>
-                                            <th>Program Studi</th>
-                                            <th>Semester</th>
-                                            <th>Dosen Pengampu</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>TI101</td>
-                                            <td>Algoritma dan Pemrograman</td>
-                                            <td>3</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>1</td>
-                                            <td>Ibu Hendrawati</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" onclick="editMataKuliah(this)"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteMataKuliah(this)"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>TI102</td>
-                                            <td>Basis Data</td>
-                                            <td>4</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>2</td>
-                                            <td>Bapak Salahuddin</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#editMataKuliahModal"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteMataKuliah()"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>TI103</td>
-                                            <td>Pemrograman Web</td>
-                                            <td>2</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>3</td>
-                                            <td>Bapak Amirullah</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#editMataKuliahModal"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteMataKuliah()"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>TI104</td>
-                                            <td>Pengolahan Citra Digital</td>
-                                            <td>1</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>5</td>
-                                            <td>Bapak Musta'inul Abdi</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#editMataKuliahModal"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteMataKuliah()"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>TI105</td>
-                                            <td>Pemrograman Mobile</td>
-                                            <td>5</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>4</td>
-                                            <td>Bapak Muhammad Rizka</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#editMataKuliahModal"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteMataKuliah()"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>TRKJ201</td>
-                                            <td>Bahasa Indonesia</td>
-                                            <td>4</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>6</td>
-                                            <td>Ibu Jamilah</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#editMataKuliahModal"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteMataKuliah()"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>TRKJ202</td>
-                                            <td>Rancangan Analisa Algoritma</td>
-                                            <td>3</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>8</td>
-                                            <td>Bapak Musta'inul Abdi</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#editMataKuliahModal"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteMataKuliah()"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>TRKJ203</td>
-                                            <td>Statistik dan Probabilitas</td>
-                                            <td>1</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>7</td>
-                                            <td>Bapak Rizal Syahyadi</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#editMataKuliahModal"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteMataKuliah()"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>TRKJ204</td>
-                                            <td>Keamanan Jaringan Komputer</td>
-                                            <td>4</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>3</td>
-                                            <td>Bapak Khadafi</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#editMataKuliahModal"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteMataKuliah()"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>TRKJ205</td>
-                                            <td>Sistem Pengambilan Keputusan</td>
-                                            <td>2</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>5</td>
-                                            <td>Bapak Mahdi</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#editMataKuliahModal"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteMataKuliah()"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>11</td>
-                                            <td>TRM301</td>
-                                            <td>Workshop Pengembangan Perangkat Lunak</td>
-                                            <td>4</td>
-                                            <td>Teknik Informatika</td>
-                                            <td>2</td>
-                                            <td>Bapak Muhammad Arhami</td>
-                                            <td>
-                                                <a class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                                    data-bs-target="#editMataKuliahModal"><i
-                                                        class="fas fa-fw fa-edit"></i> Edit</a>
-                                                <a class="btn btn-danger btn-sm" onclick="deleteMataKuliah()"><i
-                                                        class="fas fa-fw fa-trash"></i> Hapus</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama Mata Kuliah</th>
+            <th>SKS</th>
+            <th>Kelas</th> <!-- Ini merepresentasikan id_kelas -->
+            <th>Semester</th>
+            <th>Dosen Pengampu</th> <!-- Ini merepresentasikan id_dosen -->
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        // Nomor urut
+        $no = 1;
+
+        // Query untuk mendapatkan data dari tabel mata_kuliah dengan join ke tabel dosen dan kelas
+        $query = mysqli_query($conn, "
+            SELECT 
+                mata_kuliah.id_mk, 
+                mata_kuliah.nama_mk, 
+                mata_kuliah.sks, 
+                mata_kuliah.semester, 
+                dosen.nama_dosen, 
+                kelas.nama_kelas 
+            FROM 
+                mata_kuliah
+            INNER JOIN 
+                dosen ON mata_kuliah.id_dosen = dosen.id_dosen
+            INNER JOIN 
+                kelas ON mata_kuliah.id_kelas = kelas.id_kelas
+        ");
+
+        // Looping hasil query
+        while ($row = mysqli_fetch_array($query)) {
+            ?>
+                        <tr>
+                            <!-- No Urut -->
+                            <td><?php echo $no++; ?></td>
+
+                            <!-- Nama Mata Kuliah -->
+                            <td><?php echo $row['nama_mk']; ?></td>
+
+                            <!-- SKS -->
+                            <td><?php echo $row['sks']; ?></td>
+
+                            <!-- Nama Kelas -->
+                            <td><?php echo $row['nama_kelas']; ?></td> <!-- Merepresentasikan id_kelas -->
+
+                            <!-- Semester -->
+                            <td><?php echo $row['semester']; ?></td>
+
+                            <!-- Nama Dosen Pengampu -->
+                            <td><?php echo $row['nama_dosen']; ?></td> <!-- Merepresentasikan id_dosen -->
+
+                            <!-- Tombol Aksi -->
+                            <td>
+                                <a class="btn btn-warning btn-sm" 
+                                   data-bs-toggle="modal" 
+                                   data-bs-target="#editModal" 
+                                   onclick="editMataKuliah(<?php echo $row['id_mk']; ?>)">
+                                    <i class="fas fa-fw fa-edit"></i> Edit
+                                </a>
+
+                                <a href="#" 
+                                   class="btn btn-danger btn-sm" 
+                                   onclick="confirmDelete(<?php echo $row['id_mk']; ?>)">
+                                    <i class="fas fa-fw fa-trash"></i> Hapus
+                                </a>
+
+                                <a class="btn btn-info btn-sm" 
+                                   data-bs-toggle="modal" 
+                                   data-bs-target="#detailModal">
+                                    <i class="fas fa-fw fa-ticket-detailed-fill"></i> Detail
+                                </a>
+                            </td>
+                        </tr>
+                        <?php
+        }
+        ?>
+    </tbody>
+</table>
+
 
                                 <!-- Modal Tambah Mata Kuliah -->
                                 <div class="modal fade" id="addMataKuliahModal" tabindex="-1"
